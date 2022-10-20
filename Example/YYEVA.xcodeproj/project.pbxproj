@@ -25,6 +25,7 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		9BD67FB12900F015000A9236 /* animate_perfect.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9BD67FB02900F015000A9236 /* animate_perfect.mp4 */; };
 		9BD67FB32900F01C000A9236 /* perfectx2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD67FB22900F01C000A9236 /* perfectx2.png */; };
+		DF6B044228CAEB1B00F744A4 /* YYEVAPlayer+HttpURL.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6B044028CAEB1B00F744A4 /* YYEVAPlayer+HttpURL.m */; };
 		DF7FF65B282E6115005CFFB5 /* effect.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DF7FF656282E6115005CFFB5 /* effect.mp4 */; };
 		DF7FF65C282E6115005CFFB5 /* alpha.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DF7FF657282E6115005CFFB5 /* alpha.mp4 */; };
 		DF7FF6672832531C005CFFB5 /* ball_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF7FF6642832531C005CFFB5 /* ball_3.png */; };
@@ -71,6 +72,8 @@
 		9BD67FB22900F01C000A9236 /* perfectx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perfectx2.png; sourceTree = "<group>"; };
 		B7A52F3E9084B7001895699B /* Pods_YYEVA_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YYEVA_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E047AAECA4374629C5E902 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		DF6B044028CAEB1B00F744A4 /* YYEVAPlayer+HttpURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YYEVAPlayer+HttpURL.m"; sourceTree = "<group>"; };
+		DF6B044128CAEB1B00F744A4 /* YYEVAPlayer+HttpURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YYEVAPlayer+HttpURL.h"; sourceTree = "<group>"; };
 		DF7FF656282E6115005CFFB5 /* effect.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = effect.mp4; sourceTree = "<group>"; };
 		DF7FF657282E6115005CFFB5 /* alpha.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = alpha.mp4; sourceTree = "<group>"; };
 		DF7FF6642832531C005CFFB5 /* ball_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_3.png; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* YYEVAViewController.h */,
 				6003F5A6195388D20070C39A /* YYEVAViewController.m */,
+				DF6B044128CAEB1B00F744A4 /* YYEVAPlayer+HttpURL.h */,
+				DF6B044028CAEB1B00F744A4 /* YYEVAPlayer+HttpURL.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -374,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* YYEVAAppDelegate.m in Sources */,
+				DF6B044228CAEB1B00F744A4 /* YYEVAPlayer+HttpURL.m in Sources */,
 				6003F5A7195388D20070C39A /* YYEVAViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

@@ -12,9 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
   
 #ifdef __cplusplus
 extern "C" {
-#endif 
-    extern void normalVerticesWithFillMode(CGRect rect, CGSize containerSize, CGSize picSize,YYEVAEffectSourceImageFillMode fillMode, float vertices[16],YYEVAFillMode videoFillMode,CGSize trueSize);
+#endif  
+
+    extern void normalVerticesWithFillMod(CGRect rect, CGSize containerSize, CGSize picSize,YYEVAEffectSourceImageFillMode fillMode, float vertices[_Nullable 16],YYEVAFillMode videoFillMode,CGSize trueSize);
+   
     extern void textureCoordinateFromRect(CGRect rect,CGSize containerSize,float coordinates[_Nullable 8]);
+    extern void mask_textureCoordinateFromRect(CGRect rect,CGSize containerSize,float coordinates[_Nullable 8]);
     
 #ifdef __cplusplus
 }
@@ -26,6 +29,13 @@ extern "C" {
                      textColor:(UIColor *)textColor
                       fontSize:(float)fontSize
                       rectSize:(CGSize)rectSize;
+
++ (id<MTLTexture>)getTextureFromPixelBuffer:(CVPixelBufferRef)pixelBufferRef
+                                  planeIndex:(size_t)planeIndex
+                                 pixelFormat:(MTLPixelFormat)pixelFormat
+                                     device:(id<MTLDevice>)device
+                               textureCache:(CVMetalTextureCacheRef)textureCache;
+
 @end
 
 

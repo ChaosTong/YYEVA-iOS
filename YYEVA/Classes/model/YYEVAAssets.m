@@ -13,7 +13,7 @@
 
 #define kSampleBufferQueueMaxCapacity 3
 
-@interface YYEVAAssets()
+@interface YYEVAAssets() <AVAudioPlayerDelegate>
 {
     CFMutableArrayRef _sampleBufferQueue;
 }
@@ -99,20 +99,19 @@
 }
 
 //metal:texture
-- (void)loadVideo
+- (BOOL)loadVideo
 {
     if (!self.filePath || ![[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) {
         NSLog(@"filepath not exits:%@",self.filePath);
-        return;
+        return NO;
     }
-      
     NSDictionary *dictionary = [self.demuxer demuxEffectJsonWithFilePath:self.filePath];
     
     YYEVAEffectInfo *effectInfo = [YYEVAEffectInfo effectInfoWithDictionary:dictionary];
     
     _effectInfo = effectInfo;
     
-    if (effectInfo) {
+    if (effectInfo && effectInfo.isEffect) {
         self.isEffectVideo = YES;
     } else {
         self.isEffectVideo = NO;
@@ -125,7 +124,7 @@
     }
     
     //获取视频的分辨率
-    if (CGSizeEqualToSize(effectInfo.rgbFrame.size, CGSizeZero)) {
+    if (!CGSizeEqualToSize(effectInfo.rgbFrame.size, CGSizeZero)) {
         self.rgbSize = effectInfo.rgbFrame.size;
     }
     
@@ -134,24 +133,23 @@
     
     if (!asset) {
         NSLog(@"load asset url:%@ failure",self.filePath);
-        return;
+        return NO;
     }
     
     AVAssetReader *reader = [AVAssetReader assetReaderWithAsset:asset error:nil];
     
     if (!reader) {
         NSLog(@"assetReaderWithAsset:%@ failure",self.filePath);
-        return;
+        return NO;
     }
     AVAssetTrack *assetTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] firstObject];
     if (!assetTrack) {
         NSLog(@"tracksWithMediaType url:%@ failure",self.filePath);
-        return;
+        return NO;
     }
     
     AVAssetTrack *assetAudioTrack = [[asset tracksWithMediaType:AVMediaTypeAudio] firstObject];
     if (!assetAudioTrack) {
-        NSLog(@"tracksWithMediaAudioType url:%@ failure",self.filePath);
         _audioPlayer = nil;
     } else {
         self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:self.filePath] error:nil];
@@ -186,6 +184,8 @@
     _frameIndex = -1;
     _reader = reader;
     _output = output;
+    
+    return YES;
 }
  
 
@@ -267,7 +267,6 @@
 - (void)dealloc
 {
     [self clear];
-    NSLog(@"-%@--%zd---", self,CFArrayGetCount(self->_sampleBufferQueue));
     
     CFRelease(self->_sampleBufferQueue);
     self->_sampleBufferQueue = NULL;
@@ -288,6 +287,24 @@
         return;
     }
     
-    [_audioPlayer play];
+    if ([_audioPlayer isPlaying]) {
+        [_audioPlayer pause];
+    }
+    __weak typeof(self) weakself = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+         
+        weakself.audioPlayer.currentTime = 0.0f;
+        [weakself.audioPlayer prepareToPlay];
+        [weakself.audioPlayer play];
+    });
+    
 }
+
+- (void)reload
+{
+    [self tryPlayAudio];
+    [self loadVideo];
+}
+ 
+ 
 @end
