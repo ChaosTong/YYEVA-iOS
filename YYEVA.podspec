@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.license          = { :type => 'Apache Version 2.0', :file => 'LICENSE' }
   s.author           = { 'guoyabin' => 'guoyabin2@yy.com' }
-  s.source           = { :git => 'https://github.com/yylive/YYEVA-iOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:ChaosTong/YYEVA-iOS.git', :branch => 'fix' }
 
 
   s.ios.deployment_target = '9.0'
