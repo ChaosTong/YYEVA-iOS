@@ -23,7 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playWithAssets:(YYEVAAssets *)assets;
 - (instancetype)initWithMetalView:(MTKView *)mtkView;
 
-@property (nonatomic, assign) YYEVAFillMode fillMode; 
+@property (nonatomic, assign) YYEVAFillMode fillMode;
+
+@property (nonatomic, assign) CGSize inputSize;
  
 @end
 

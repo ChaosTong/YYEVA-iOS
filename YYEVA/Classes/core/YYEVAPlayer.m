@@ -20,8 +20,6 @@
 @property (nonatomic, copy)   NSString *fileUrl;
 @property (nonatomic, strong) NSMutableDictionary *imgUrlKeys;
 @property (nonatomic, strong) NSMutableDictionary *textKeys;
-@property (nonatomic, copy)   NSString *bgImageUrl;
-@property (nonatomic, assign) UIViewContentMode bgContentMode;
 @property (nonatomic, assign) NSInteger repeatCount;
 @end
 
@@ -61,17 +59,15 @@
 //4.开始播放
 - (void)play:(NSString *)url
 {
-    [self play:url repeatCount:1];
-}
+     [self play:url repeatCount:1];
+ }
 
-- (void)play:(NSString *)fileUrl repeatCount:(NSInteger)repeatCount
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self playWithFileUrl:fileUrl repeatCount:repeatCount];
-    });
-}
-
-
+ - (void)play:(NSString *)fileUrl repeatCount:(NSInteger)repeatCount
+ {
+     dispatch_async(dispatch_get_main_queue(), ^{
+         [self playWithFileUrl:fileUrl repeatCount:repeatCount];
+     });
+ }
 
  
 - (void)switchAssets:(YYEVAAssets *)assets
@@ -87,10 +83,7 @@
         self.imgUrlKeys.count == 0 ?: [dict addEntriesFromDictionary:self.imgUrlKeys] ;
         assets.businessEffects = dict;
     }
-    BOOL loadResult = [assets loadVideo];
-    if (loadResult == NO) {
-        [self endPlay];
-    }
+    [assets loadVideo];
 }
 
 - (void)playWithFileUrl:(NSString *)url repeatCount:(NSInteger)repeatCount
@@ -100,13 +93,13 @@
     [self switchAssets:assets];
     //包含描述信息 走的是maskRender
     [self setupMetal];
-    if (self.assets.isEffectVideo) {
+    if (self.assets.effectInfo) {
         self.videoRender = [[YYEVAVideoEffectRender alloc] initWithMetalView:self.mtkView];
-        [(YYEVAVideoEffectRender *)self.videoRender setBgImageUrl:self.bgImageUrl contentMode:self.bgContentMode];
     } else {
         self.videoRender = [[YYEVAVideoAlphaRender alloc] initWithMetalView:self.mtkView];
     }
    self.videoRender.fillMode = self.mode;
+   self.videoRender.inputSize = self.assets.rgbSize;
    self.mtkView.delegate = self.videoRender;
    self.mtkView.frame = self.bounds;
    self.mtkView.backgroundColor = [UIColor clearColor];
@@ -115,15 +108,15 @@
     __weak typeof(self) weakSelf = self;
        
     self.videoRender.completionPlayBlock = ^{
+//        [weakSelf endPlay];
         weakSelf.repeatCount--;
         if (weakSelf.repeatCount > 0) {
-//            [weakSelf playWithFileUrl:url repeatCount:weakSelf.repeatCount];
+        //            [weakSelf playWithFileUrl:url repeatCount:weakSelf.repeatCount];
             [weakSelf.assets reload];
         } else {
             weakSelf.mtkView.paused = YES;
             [weakSelf endPlay];
         }
-        
     };
    [self.videoRender playWithAssets:assets];
    [self.assets tryPlayAudio];
@@ -185,12 +178,6 @@
         _textKeys = [NSMutableDictionary dictionary];
     }
     return _textKeys;
-}
- 
-- (void)setBackgroundImage:(NSString *)imgUrl scaleMode:(UIViewContentMode)contentMode
-{
-    self.bgImageUrl = imgUrl;
-    self.bgContentMode = contentMode;
 }
 
 
