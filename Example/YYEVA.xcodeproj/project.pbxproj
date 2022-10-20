@@ -23,6 +23,8 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		82285A98073571D38E70EDE2 /* Pods_YYEVA_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A52F3E9084B7001895699B /* Pods_YYEVA_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		9BD67FB12900F015000A9236 /* animate_perfect.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9BD67FB02900F015000A9236 /* animate_perfect.mp4 */; };
+		9BD67FB32900F01C000A9236 /* perfectx2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD67FB22900F01C000A9236 /* perfectx2.png */; };
 		DF7FF65B282E6115005CFFB5 /* effect.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DF7FF656282E6115005CFFB5 /* effect.mp4 */; };
 		DF7FF65C282E6115005CFFB5 /* alpha.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DF7FF657282E6115005CFFB5 /* alpha.mp4 */; };
 		DF7FF6672832531C005CFFB5 /* ball_3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF7FF6642832531C005CFFB5 /* ball_3.png */; };
@@ -65,6 +67,8 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89F9A649FBB9AF1C4B06F434 /* Pods-YYEVA_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYEVA_Example.debug.xcconfig"; path = "Target Support Files/Pods-YYEVA_Example/Pods-YYEVA_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8E5D800C7FAC72A2BB707AFD /* Pods-YYEVA_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYEVA_Example.release.xcconfig"; path = "Target Support Files/Pods-YYEVA_Example/Pods-YYEVA_Example.release.xcconfig"; sourceTree = "<group>"; };
+		9BD67FB02900F015000A9236 /* animate_perfect.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = animate_perfect.mp4; sourceTree = "<group>"; };
+		9BD67FB22900F01C000A9236 /* perfectx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perfectx2.png; sourceTree = "<group>"; };
 		B7A52F3E9084B7001895699B /* Pods_YYEVA_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YYEVA_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E047AAECA4374629C5E902 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DF7FF656282E6115005CFFB5 /* effect.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = effect.mp4; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 		DF7FF653282E6115005CFFB5 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				9BD67FB02900F015000A9236 /* animate_perfect.mp4 */,
+				9BD67FB22900F01C000A9236 /* perfectx2.png */,
 				DF7FF6652832531C005CFFB5 /* ball_1.png */,
 				DF7FF6662832531C005CFFB5 /* ball_2.png */,
 				DF7FF6642832531C005CFFB5 /* ball_3.png */,
@@ -262,8 +268,8 @@
 				ORGANIZATIONNAME = guoyabin;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = A9279LKR2Q;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 38N7PDA94G;
+						ProvisioningStyle = Automatic;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -300,6 +306,8 @@
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				DF7FF6682832531C005CFFB5 /* ball_1.png in Resources */,
 				DF7FF65B282E6115005CFFB5 /* effect.mp4 in Resources */,
+				9BD67FB12900F015000A9236 /* animate_perfect.mp4 in Resources */,
+				9BD67FB32900F01C000A9236 /* perfectx2.png in Resources */,
 				DF7FF6672832531C005CFFB5 /* ball_3.png in Resources */,
 				DF7FF65C282E6115005CFFB5 /* alpha.mp4 in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -495,15 +503,16 @@
 			baseConfigurationReference = 89F9A649FBB9AF1C4B06F434 /* Pods-YYEVA_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = A9279LKR2Q;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38N7PDA94G;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YYEVA/YYEVA-Prefix.pch";
 				INFOPLIST_FILE = "YYEVA/YYEVA-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.gyb123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match baidu all";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -514,15 +523,16 @@
 			baseConfigurationReference = 8E5D800C7FAC72A2BB707AFD /* Pods-YYEVA_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = A9279LKR2Q;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38N7PDA94G;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YYEVA/YYEVA-Prefix.pch";
 				INFOPLIST_FILE = "YYEVA/YYEVA-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.gyb123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match baidu all";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};

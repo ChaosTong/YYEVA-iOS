@@ -72,7 +72,7 @@
 
 - (void)onClickMaskRenderBtn
 {
-    NSString *file = [[NSBundle mainBundle] pathForResource:@"effect.mp4" ofType:nil];
+    NSString *file = [[NSBundle mainBundle] pathForResource:@"animate_perfect.mp4" ofType:nil];
     NSString *str = self.textField.text;
     
     if (self.player) {
@@ -80,9 +80,9 @@
         self.player = nil;
     }
     
-    NSString *png1 = [[NSBundle mainBundle] pathForResource:@"ball_1.png" ofType:nil];
-    NSString *png2 = [[NSBundle mainBundle] pathForResource:@"ball_2.png" ofType:nil];
-    NSString *png3 = [[NSBundle mainBundle] pathForResource:@"ball_3.png" ofType:nil];
+    NSString *png1 = [[NSBundle mainBundle] pathForResource:@"perfectx2.png" ofType:nil];
+//    NSString *png2 = [[NSBundle mainBundle] pathForResource:@"ball_2.png" ofType:nil];
+//    NSString *png3 = [[NSBundle mainBundle] pathForResource:@"ball_3.png" ofType:nil];
      
     YYEVAPlayer *player = [[YYEVAPlayer alloc] init];
     player.delegate = self;
@@ -91,13 +91,13 @@
     self.player = player;
     
     //配置相关属性
-    [player setImageUrl:png1 forKey:@"anchor_avatar1"];
-    [player setImageUrl:png2 forKey:@"anchor_avatar2"];
-    [player setImageUrl:png3 forKey:@"anchor_avatar3"];
+    [player setImageUrl:png1 forKey:@"anchor_avatar"];
+//    [player setImageUrl:png2 forKey:@"anchor_avatar2"];
+//    [player setImageUrl:png3 forKey:@"anchor_avatar3"];
     [player setText:str.length ? str :@"可替换文案" forKey:@"anchor_nick"];
     
     //开始播
-    [player play:file];
+    [player play:file repeatCount:10];
 }
 
 - (CGRect)playViewFrame
