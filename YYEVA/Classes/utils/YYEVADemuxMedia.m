@@ -52,7 +52,7 @@
        
        
        if ([jsonStr containsString:matchStart] && [jsonStr containsString:matchEnd]) {
-           NSLog(@"jsonStr:%@",jsonStr);
+//           NSLog(@"jsonStr:%@",jsonStr);
            NSMutableString *json = [[NSMutableString alloc] initWithString:jsonStr];
            //匹配出中间字符串
            [json replaceOccurrencesOfString:matchStart withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, json.length)];
@@ -65,7 +65,7 @@
               
            NSTimeInterval curtimeInterval = [NSDate date].timeIntervalSince1970;
            
-           NSLog(@"%f,dict : %@",curtimeInterval - timeInterval,dict);
+//           NSLog(@"%f,dict : %@",curtimeInterval - timeInterval,dict);
            
            return dict;
            

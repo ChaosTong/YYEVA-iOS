@@ -310,7 +310,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    NSLog(@"---finish---");
+//    NSLog(@"---finish---");
     [player pause];
     player.currentTime = 0;
 }

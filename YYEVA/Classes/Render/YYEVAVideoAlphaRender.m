@@ -190,7 +190,7 @@ extern vector_float3 kColorConversion601FullRangeOffset;
      
     if(renderPassDescriptor && sampleBuffer)
     {
-        NSLog(@"-----%zd----",self.playAssets.frameIndex);
+//        NSLog(@"-----%zd----",self.playAssets.frameIndex);
         
         //设置renderPassDescriptor中颜色附着(默认背景色)
         renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.0, 0.0, 0.0, 0.0f);
